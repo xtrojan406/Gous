@@ -1,64 +1,65 @@
-(function(){
-    const _0x1a2b = ['getElementById', 'value', 'files', 'length', 'push', 'textContent', 'display', 'block', 'none', 'createObjectURL', 'download', 'href', 'text', 'split', 'FileReader', 'alert', 'readAsText', 'join', 'map'];
-    function _0x3a0c(_0x293f, _0x303e) { return _0x293f[_0x303e]; }
+(function() {
+    const _0x4c4b = ['getElementById', 'value', 'files', 'length', 'push', 'textContent', 'display', 'block', 'none', 'createObjectURL', 'download', 'href', 'split', 'FileReader', 'alert', 'readAsText', 'join', 'map'];
     
-    function processFile() {
-        const _0x2e2d = document[_0x3a0c(0)]('fileInput');
-        const _0x349d = document[_0x3a0c(0)]('output');
-        const _0x18ef = document[_0x3a0c(0)]('downloadLink');
-        const _0x5c89 = document[_0x3a0c(0)]('outputFileName')[_0x3a0c(1)];
-        const _0x7e1e = document[_0x3a0c(0)]('toggleOutput');
+    function _0x2e6f(_0x1a3f, _0x2c5e) { return _0x1a3f[_0x2c5e]; }
 
-        if (_0x2e2d[_0x3a0c(2)][_0x3a0c(3)] === 0) {
+    function processFile() {
+        const _0x2d88 = document[_0x2e6f(0)]('fileInput');
+        const _0x2bb5 = document[_0x2e6f(0)]('output');
+        const _0x1c0a = document[_0x2e6f(0)]('downloadLink');
+        const _0x2e76 = document[_0x2e6f(0)]('outputFileName')[_0x2e6f(1)];
+        const _0x2a4e = document[_0x2e6f(0)]('toggleOutput');
+
+        if (_0x2d88[_0x2e6f(2)][_0x2e6f(3)] === 0) {
             alert('Pilih file .txt terlebih dahulu');
             return;
         }
-        if (!_0x5c89) {
+        if (!_0x2e76) {
             alert('Masukkan nama file output');
             return;
         }
 
-        const _0x2b8f = _0x2e2d[_0x3a0c(2)][0];
-        const _0x1b5d = new FileReader();
-        _0x1b5d[_0x3a0c(4)] = function(e) {
-            const _0x258b = e.target.result[_0x3a0c(5)]('\n');
-            const _0x2042 = _0x258b[_0x3a0c(6)](line => line[_0x3a0c(5)](/\s+/));
+        const _0x2c5e = _0x2d88[_0x2e6f(2)][0];
+        const _0x1c5b = new FileReader();
+        _0x1c5b.onload = function(e) {
+            const _0x2a23 = e.target.result[_0x2e6f(4)]('\n');
+            const _0x2e6b = _0x2a23[_0x2e6f(5)](line => line[_0x2e6f(4)](/\s+/));
 
-            let _0x2d6b = [];
-            _0x2042.forEach(row => {
-                for (let col = 0; col < row.length; col++) {
-                    if (row[col]) {
-                        _0x2d6b.push(row[col]);
+            let _0x2d69 = [];
+            for (let _0x2d6b = 0; _0x2d6b < _0x2e6b[0].length; _0x2d6b++) {
+                for (let _0x2bb5 = 0; _0x2bb5 < _0x2e6b.length; _0x2bb5++) {
+                    if (_0x2e6b[_0x2bb5][_0x2d6b] !== undefined && _0x2e6b[_0x2bb5][_0x2d6b] !== '') {
+                        _0x2d69[_0x2e6f(6)](_0x2e6b[_0x2bb5][_0x2d6b]);
                     }
                 }
-            });
+            }
 
-            const _0x4a93 = _0x2d6b.join('\n');
+            const _0x1b3c = _0x2d69[_0x2e6f(7)]('\n');
 
-            _0x349d.textContent = _0x4a93;
-            _0x349d.style.display = _0x1a2b[8];
+            _0x2bb5[_0x2e6f(8)] = _0x1b3c;
+            _0x2bb5.style[_0x2e6f(9)] = 'block';
 
-            const _0x3d90 = new Blob([_0x4a93], { type: 'text/plain' });
-            const _0x5e44 = URL[_0x1a2b[9]](_0x3d90);
-            _0x18ef.href = _0x5e44;
-            _0x18ef.download = _0x5c89;
-            _0x18ef.textContent = 'Download File Gabungan';
+            const _0x2c2d = new Blob([_0x1b3c], { type: 'text/plain' });
+            const _0x2a68 = URL[_0x2e6f(10)](_0x2c2d);
+            _0x1c0a.href = _0x2a68;
+            _0x1c0a[_0x2e6f(11)] = _0x2e76;
+            _0x1c0a.textContent = 'Download File Gabungan';
 
-            _0x7e1e.textContent = 'Sembunyikan Hasil';
+            _0x2a4e.textContent = 'Sembunyikan Hasil';
         };
-        _0x1b5d.readAsText(_0x2b8f);
+        _0x1c5b[_0x2e6f(12)](_0x2c5e);
     }
 
     function toggleOutput() {
-        const _0x5f07 = document[_0x3a0c(0)]('output');
-        const _0x4b8a = document[_0x3a0c(0)]('toggleOutput');
+        const _0x2a4e = document[_0x2e6f(0)]('output');
+        const _0x1c5b = document[_0x2e6f(0)]('toggleOutput');
 
-        if (_0x5f07.style.display === 'none') {
-            _0x5f07.style.display = 'block';
-            _0x4b8a.textContent = 'Sembunyikan Hasil';
+        if (_0x2a4e.style[_0x2e6f(9)] === 'none') {
+            _0x2a4e.style[_0x2e6f(9)] = 'block';
+            _0x1c5b.textContent = 'Sembunyikan Hasil';
         } else {
-            _0x5f07.style.display = 'none';
-            _0x4b8a.textContent = 'Tampilkan Hasil';
+            _0x2a4e.style[_0x2e6f(9)] = 'none';
+            _0x1c5b.textContent = 'Tampilkan Hasil';
         }
     }
 
