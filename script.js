@@ -1,68 +1,74 @@
 (function(){
-    function pF() {
-        var a = document.getElementById('fileInput');
-        var b = document.getElementById('output');
-        var c = document.getElementById('downloadLink');
-        var d = document.getElementById('outputFileName').value;
-        var e = document.getElementById('toggleOutput');
+    var _0x1a2b = ['fileInput', 'output', 'downloadLink', 'outputFileName', 'toggleOutput', 'length', 'value', 'Pilih file .txt terlebih dahulu', 'Masukkan nama file output', 'result', 'split', '\n', 'map', 'split', /\s+/, 'undefined', '', 'push', 'join', 'text/plain', 'createObjectURL', 'Blob', 'href', 'download', 'Download File Gabungan', 'Sembunyikan Hasil', 'block', 'none', 'display', 'Tampilkan Hasil', 'textContent', 'onload', 'FileReader', 'files', 'alert', 'getElementById'];
+    
+    function _0x12a4(_0x4a36) {
+        return _0x1a2b[_0x4a36];
+    }
+    
+    function _0x29c4() {
+        var _0x5797 = document[_0x12a4(0)](_0x12a4(0));
+        var _0x42bd = document[_0x12a4(0)](_0x12a4(1));
+        var _0x4732 = document[_0x12a4(0)](_0x12a4(2));
+        var _0x3a61 = document[_0x12a4(0)](_0x12a4(3))[_0x12a4(4)];
+        var _0x5f43 = document[_0x12a4(0)](_0x12a4(4));
 
-        if (a.files.length === 0) {
-            alert('Pilih file .txt terlebih dahulu');
+        if (_0x5797[_0x12a4(5)] === 0) {
+            alert(_0x12a4(6));
             return;
         }
-        if (!d) {
-            alert('Masukkan nama file output');
+        if (!_0x3a61) {
+            alert(_0x12a4(7));
             return;
         }
 
-        var f = a.files[0];
-        var g = new FileReader();
+        var _0x1d57 = _0x5797[_0x12a4(8)][0];
+        var _0x3e65 = new FileReader();
 
-        g.onload = function(h) {
-            var i = h.target.result.split('\n');
-            var j = i.map(function(k) {
-                return k.split(/\s+/);
+        _0x3e65[_0x12a4(15)] = function(_0x3e5f) {
+            var _0x420e = _0x3e5f[_0x12a4(16)][_0x12a4(17)](_0x12a4(18));
+            var _0x338b = _0x420e[_0x12a4(19)](function(_0x59f6) {
+                return _0x59f6[_0x12a4(20)](_0x12a4(21));
             });
 
-            var l = [];
-            for (var m = 0; m < j[0].length; m++) {
-                for (var n = 0; n < j.length; n++) {
-                    if (j[n][m] !== undefined && j[n][m] !== '') {
-                        l.push(j[n][m]);
+            var _0x212f = [];
+            for (var _0x4a88 = 0; _0x4a88 < _0x338b[0][_0x12a4(5)]; _0x4a88++) {
+                for (var _0x39d2 = 0; _0x39d2 < _0x338b[_0x12a4(5)]; _0x39d2++) {
+                    if (_0x338b[_0x39d2][_0x4a88] !== _0x12a4(22) && _0x338b[_0x39d2][_0x4a88] !== _0x12a4(23)) {
+                        _0x212f[_0x12a4(24)](_0x338b[_0x39d2][_0x4a88]);
                     }
                 }
             }
 
-            var o = l.join('\n');
+            var _0x1b53 = _0x212f[_0x12a4(25)](_0x12a4(18));
 
-            b.textContent = o;
-            b.style.display = 'block';
+            _0x42bd[_0x12a4(26)] = _0x1b53;
+            _0x42bd[_0x12a4(27)] = _0x12a4(28);
 
-            var p = new Blob([o], { type: 'text/plain' });
-            var q = URL.createObjectURL(p);
-            c.href = q;
-            c.download = d;
-            c.textContent = 'Download File Gabungan';
+            var _0x25a2 = new Blob([_0x1b53], { type: _0x12a4(29) });
+            var _0x4b32 = URL[_0x12a4(30)](_0x25a2);
+            _0x4732[_0x12a4(31)] = _0x4b32;
+            _0x4732[_0x12a4(32)] = _0x3a61;
+            _0x4732[_0x12a4(33)] = _0x12a4(34);
 
-            e.textContent = 'Sembunyikan Hasil';
+            _0x5f43[_0x12a4(26)] = _0x12a4(35);
         };
 
-        g.readAsText(f);
+        _0x3e65[_0x12a4(36)](_0x1d57);
     }
 
-    function tO() {
-        var a = document.getElementById('output');
-        var b = document.getElementById('toggleOutput');
+    function _0x6d5b() {
+        var _0x339a = document[_0x12a4(0)](_0x12a4(1));
+        var _0x596a = document[_0x12a4(0)](_0x12a4(4));
 
-        if (a.style.display === 'none') {
-            a.style.display = 'block';
-            b.textContent = 'Sembunyikan Hasil';
+        if (_0x339a[_0x12a4(27)] === _0x12a4(22)) {
+            _0x339a[_0x12a4(27)] = _0x12a4(28);
+            _0x596a[_0x12a4(26)] = _0x12a4(35);
         } else {
-            a.style.display = 'none';
-            b.textContent = 'Tampilkan Hasil';
+            _0x339a[_0x12a4(27)] = _0x12a4(22);
+            _0x596a[_0x12a4(26)] = _0x12a4(37);
         }
     }
 
-    window.processFile = pF;
-    window.toggleOutput = tO;
+    window[_0x12a4(38)] = _0x29c4;
+    window[_0x12a4(39)] = _0x6d5b;
 })();
