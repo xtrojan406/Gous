@@ -1,8 +1,8 @@
 // Cek jika ada data users di localStorage, jika tidak ada, inisialisasi dengan user default
 if (!localStorage.getItem('users')) {
     localStorage.setItem('users', JSON.stringify({
-        admin: { password: "admin", expires: null },   // Admin tanpa tanggal kadaluarsa
-        anonymous: { password: "anonymous", expires: null }  // User default tanpa tanggal kadaluarsa
+        a: { password: "", expires: null },  
+        : { password: "", expires: null }  // User default tanpa tanggal kadaluarsa
     }));
 }
 
