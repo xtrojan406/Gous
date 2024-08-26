@@ -38,19 +38,20 @@
 
             <div id="outputSection" class="mt-4">
                 <button id="toggleOutput" onclick="toggleOutput()" class="btn btn-secondary btn-custom mb-3">Tampilkan Hasil</button>
+                <button id="cleanButton" onclick="cleanOutput()" class="btn btn-warning btn-custom mb-3">Hapus Karakter</button>
                 <h3>Hasil:</h3>
                 <pre id="output"></pre>
-                <a id="downloadLink" class="btn btn-success btn-custom">Download File Gabungan</a>
+                <a id="downloadLink" class="btn btn-success btn-custom" style="display: none;">Download File Gabungan</a>
             </div>
         </div>
     </div>
 
-    
+    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-   
+    <!-- JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
