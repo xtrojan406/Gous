@@ -26,7 +26,9 @@ function processFile() {
         for (let col = 0; col < columns[0].length; col++) {
             for (let row = 0; row < columns.length; row++) {
                 if (columns[row][col] !== undefined && columns[row][col] !== '') {
-                    combinedLines.push(columns[row][col]);
+                    
+                    let cleanedText = columns[row][col].replace(/[+ ]/g, '');
+                    combinedLines.push(cleanedText);
                 }
             }
         }
