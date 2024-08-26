@@ -1,74 +1,66 @@
-(function(){
-    var _0x1a2b = ['fileInput', 'output', 'downloadLink', 'outputFileName', 'toggleOutput', 'length', 'value', 'Pilih file .txt terlebih dahulu', 'Masukkan nama file output', 'result', 'split', '\n', 'map', 'split', /\s+/, 'undefined', '', 'push', 'join', 'text/plain', 'createObjectURL', 'Blob', 'href', 'download', 'Download File Gabungan', 'Sembunyikan Hasil', 'block', 'none', 'display', 'Tampilkan Hasil', 'textContent', 'onload', 'FileReader', 'files', 'alert', 'getElementById'];
-    
-    function _0x12a4(_0x4a36) {
-        return _0x1a2b[_0x4a36];
-    }
-    
-    function _0x29c4() {
-        var _0x5797 = document[_0x12a4(0)](_0x12a4(0));
-        var _0x42bd = document[_0x12a4(0)](_0x12a4(1));
-        var _0x4732 = document[_0x12a4(0)](_0x12a4(2));
-        var _0x3a61 = document[_0x12a4(0)](_0x12a4(3))[_0x12a4(4)];
-        var _0x5f43 = document[_0x12a4(0)](_0x12a4(4));
+function processFile() {
+            const fileInput = document.getElementById('fileInput');
+            const output = document.getElementById('output');
+            const downloadLink = document.getElementById('downloadLink');
+            const outputFileName = document.getElementById('outputFileName').value;
+            const toggleButton = document.getElementById('toggleOutput');
 
-        if (_0x5797[_0x12a4(5)] === 0) {
-            alert(_0x12a4(6));
-            return;
-        }
-        if (!_0x3a61) {
-            alert(_0x12a4(7));
-            return;
-        }
-
-        var _0x1d57 = _0x5797[_0x12a4(8)][0];
-        var _0x3e65 = new FileReader();
-
-        _0x3e65[_0x12a4(15)] = function(_0x3e5f) {
-            var _0x420e = _0x3e5f[_0x12a4(16)][_0x12a4(17)](_0x12a4(18));
-            var _0x338b = _0x420e[_0x12a4(19)](function(_0x59f6) {
-                return _0x59f6[_0x12a4(20)](_0x12a4(21));
-            });
-
-            var _0x212f = [];
-            for (var _0x4a88 = 0; _0x4a88 < _0x338b[0][_0x12a4(5)]; _0x4a88++) {
-                for (var _0x39d2 = 0; _0x39d2 < _0x338b[_0x12a4(5)]; _0x39d2++) {
-                    if (_0x338b[_0x39d2][_0x4a88] !== _0x12a4(22) && _0x338b[_0x39d2][_0x4a88] !== _0x12a4(23)) {
-                        _0x212f[_0x12a4(24)](_0x338b[_0x39d2][_0x4a88]);
-                    }
-                }
+            if (fileInput.files.length === 0) {
+                alert('Pilih file .txt terlebih dahulu');
+                return;
+            }
+            if (!outputFileName) {
+                alert('Masukkan nama file output');
+                return;
             }
 
-            var _0x1b53 = _0x212f[_0x12a4(25)](_0x12a4(18));
+            const file = fileInput.files[0];
+            const reader = new FileReader();
 
-            _0x42bd[_0x12a4(26)] = _0x1b53;
-            _0x42bd[_0x12a4(27)] = _0x12a4(28);
+            reader.onload = function(e) {
+                const lines = e.target.result.split('\n');
+                let columns = lines.map(line => line.split(/\s+/));
 
-            var _0x25a2 = new Blob([_0x1b53], { type: _0x12a4(29) });
-            var _0x4b32 = URL[_0x12a4(30)](_0x25a2);
-            _0x4732[_0x12a4(31)] = _0x4b32;
-            _0x4732[_0x12a4(32)] = _0x3a61;
-            _0x4732[_0x12a4(33)] = _0x12a4(34);
+                // Menggabungkan kolom-kolom ke dalam satu array
+                let combinedLines = [];
+                for (let col = 0; col < columns[0].length; col++) {
+                    for (let row = 0; row < columns.length; row++) {
+                        if (columns[row][col] !== undefined && columns[row][col] !== '') {
+                            combinedLines.push(columns[row][col]);
+                        }
+                    }
+                }
 
-            _0x5f43[_0x12a4(26)] = _0x12a4(35);
-        };
+                // Menggabungkan hasil menjadi string tunggal dengan setiap elemen di baris baru
+                const resultText = combinedLines.join('\n');
 
-        _0x3e65[_0x12a4(36)](_0x1d57);
-    }
+                // Menampilkan hasil di halaman
+                output.textContent = resultText;
+                output.style.display = 'block';
 
-    function _0x6d5b() {
-        var _0x339a = document[_0x12a4(0)](_0x12a4(1));
-        var _0x596a = document[_0x12a4(0)](_0x12a4(4));
+                // Membuat file untuk diunduh
+                const blob = new Blob([resultText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                downloadLink.href = url;
+                downloadLink.download = outputFileName;
+                downloadLink.textContent = 'Download File Gabungan';
 
-        if (_0x339a[_0x12a4(27)] === _0x12a4(22)) {
-            _0x339a[_0x12a4(27)] = _0x12a4(28);
-            _0x596a[_0x12a4(26)] = _0x12a4(35);
-        } else {
-            _0x339a[_0x12a4(27)] = _0x12a4(22);
-            _0x596a[_0x12a4(26)] = _0x12a4(37);
+                // Mengubah teks tombol toggle
+                toggleButton.textContent = 'Sembunyikan Hasil';
+            };
+
+            reader.readAsText(file);
         }
-    }
 
-    window[_0x12a4(38)] = _0x29c4;
-    window[_0x12a4(39)] = _0x6d5b;
-})();
+        function toggleOutput() {
+            const output = document.getElementById('output');
+            const toggleButton = document.getElementById('toggleOutput');
+
+            if (output.style.display === 'none') {
+                output.style.display = 'block';
+                toggleButton.textContent = 'Sembunyikan Hasil';
+            } else {
+                output.style.display = 'none';
+                toggleButton.textContent = 'Tampilkan Hasil';
+            }
+                    }
