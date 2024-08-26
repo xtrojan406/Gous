@@ -1,1 +1,66 @@
-(function(_0x311806,_0x33617c){const _0x1e2aae=_0x145f,_0x91beb1=_0x311806();while(!![]){try{const _0x3f2ec0=-parseInt(_0x1e2aae(0x162))/0x1*(-parseInt(_0x1e2aae(0x13e))/0x2)+-parseInt(_0x1e2aae(0x154))/0x3*(-parseInt(_0x1e2aae(0x130))/0x4)+parseInt(_0x1e2aae(0x132))/0x5*(-parseInt(_0x1e2aae(0x15c))/0x6)+parseInt(_0x1e2aae(0x14b))/0x7*(-parseInt(_0x1e2aae(0x163))/0x8)+-parseInt(_0x1e2aae(0x157))/0x9*(parseInt(_0x1e2aae(0x143))/0xa)+parseInt(_0x1e2aae(0x160))/0xb*(-parseInt(_0x1e2aae(0x14a))/0xc)+parseInt(_0x1e2aae(0x133))/0xd*(parseInt(_0x1e2aae(0x168))/0xe);if(_0x3f2ec0===_0x33617c)break;else _0x91beb1['push'](_0x91beb1['shift']());}catch(_0x36a824){_0x91beb1['push'](_0x91beb1['shift']());}}}(_0x4682,0xd103f));const _0x437ad2=(function(){let _0x1fc704=!![];return function(_0x326dc8,_0x25e234){const _0x2ab611=_0x1fc704?function(){if(_0x25e234){const _0x1340d4=_0x25e234['apply'](_0x326dc8,arguments);return _0x25e234=null,_0x1340d4;}}:function(){};return _0x1fc704=![],_0x2ab611;};}()),_0x36648c=_0x437ad2(this,function(){const _0x57be78=_0x145f;return _0x36648c[_0x57be78(0x153)]()[_0x57be78(0x164)](_0x57be78(0x140))[_0x57be78(0x153)]()[_0x57be78(0x15e)](_0x36648c)[_0x57be78(0x164)](_0x57be78(0x140));});function _0x4682(){const _0x815aed=['3380156ZgFArl','trace','3094205qbWQEp','66235KlQdaA','result','info','return\x20(function()\x20','prototype','onload','map','log','console','table','value','246104brsLth','readAsText','(((.+)+)+)+$','href','files','195070nmwiuS','error','exception','__proto__','display','text/plain','output','1163688cCLTNq','42eMuzqD','target','fileInput','createObjectURL','Download\x20File\x20Gabungan','{}.constructor(\x22return\x20this\x22)(\x20)','style','apply','toString','3YTknhh','split','Pilih\x20file\x20.txt\x20terlebih\x20dahulu','405vEPIRt','Sembunyikan\x20Hasil','textContent','warn','Tampilkan\x20Hasil','6yYqzCl','toggleOutput','constructor','length','121fvfbyM','getElementById','7hnKaSh','1166888zRZuJa','search','download','outputFileName','Masukkan\x20nama\x20file\x20output','7112cmPlBB','bind'];_0x4682=function(){return _0x815aed;};return _0x4682();}_0x36648c();const _0x158b96=(function(){let _0x3ba034=!![];return function(_0xd18056,_0x48ca12){const _0x5b1337=_0x3ba034?function(){const _0x2b5cc9=_0x145f;if(_0x48ca12){const _0x413629=_0x48ca12[_0x2b5cc9(0x152)](_0xd18056,arguments);return _0x48ca12=null,_0x413629;}}:function(){};return _0x3ba034=![],_0x5b1337;};}()),_0x27dbce=_0x158b96(this,function(){const _0x1e60e8=_0x145f,_0xc82e6b=function(){const _0x24ecdf=_0x145f;let _0x31ed8d;try{_0x31ed8d=Function(_0x24ecdf(0x136)+_0x24ecdf(0x150)+');')();}catch(_0x434055){_0x31ed8d=window;}return _0x31ed8d;},_0x3ba694=_0xc82e6b(),_0x1853b7=_0x3ba694['console']=_0x3ba694[_0x1e60e8(0x13b)]||{},_0x1398ea=[_0x1e60e8(0x13a),_0x1e60e8(0x15a),_0x1e60e8(0x135),_0x1e60e8(0x144),_0x1e60e8(0x145),_0x1e60e8(0x13c),_0x1e60e8(0x131)];for(let _0x5bdf4e=0x0;_0x5bdf4e<_0x1398ea[_0x1e60e8(0x15f)];_0x5bdf4e++){const _0x4fdd2f=_0x158b96[_0x1e60e8(0x15e)][_0x1e60e8(0x137)][_0x1e60e8(0x169)](_0x158b96),_0x356dd8=_0x1398ea[_0x5bdf4e],_0xff6b6b=_0x1853b7[_0x356dd8]||_0x4fdd2f;_0x4fdd2f[_0x1e60e8(0x146)]=_0x158b96['bind'](_0x158b96),_0x4fdd2f[_0x1e60e8(0x153)]=_0xff6b6b[_0x1e60e8(0x153)]['bind'](_0xff6b6b),_0x1853b7[_0x356dd8]=_0x4fdd2f;}});_0x27dbce();function processFile(){const _0x4fce2f=_0x145f,_0x154fbe=document[_0x4fce2f(0x161)](_0x4fce2f(0x14d)),_0x216e03=document['getElementById'](_0x4fce2f(0x149)),_0xb2a41e=document[_0x4fce2f(0x161)]('downloadLink'),_0x37604d=document[_0x4fce2f(0x161)](_0x4fce2f(0x166))[_0x4fce2f(0x13d)],_0x41a57c=document[_0x4fce2f(0x161)](_0x4fce2f(0x15d));if(_0x154fbe['files'][_0x4fce2f(0x15f)]===0x0){alert(_0x4fce2f(0x156));return;}if(!_0x37604d){alert(_0x4fce2f(0x167));return;}const _0x1e637e=_0x154fbe[_0x4fce2f(0x142)][0x0],_0x5e63f9=new FileReader();_0x5e63f9[_0x4fce2f(0x138)]=function(_0x40d513){const _0x37772a=_0x4fce2f,_0x3728bc=_0x40d513[_0x37772a(0x14c)][_0x37772a(0x134)][_0x37772a(0x155)]('\x0a');let _0xb662ea=_0x3728bc[_0x37772a(0x139)](_0x5c68ae=>_0x5c68ae['split'](/\s+/)),_0x33fbd3=[];for(let _0x33e940=0x0;_0x33e940<_0xb662ea[0x0][_0x37772a(0x15f)];_0x33e940++){for(let _0x246996=0x0;_0x246996<_0xb662ea[_0x37772a(0x15f)];_0x246996++){_0xb662ea[_0x246996][_0x33e940]!==undefined&&_0xb662ea[_0x246996][_0x33e940]!==''&&_0x33fbd3['push'](_0xb662ea[_0x246996][_0x33e940]);}}const _0x3ffde9=_0x33fbd3['join']('\x0a');_0x216e03[_0x37772a(0x159)]=_0x3ffde9,_0x216e03['style'][_0x37772a(0x147)]='block';const _0x23ddc9=new Blob([_0x3ffde9],{'type':_0x37772a(0x148)}),_0x503a2f=URL[_0x37772a(0x14e)](_0x23ddc9);_0xb2a41e[_0x37772a(0x141)]=_0x503a2f,_0xb2a41e[_0x37772a(0x165)]=_0x37604d,_0xb2a41e['textContent']=_0x37772a(0x14f),_0x41a57c[_0x37772a(0x159)]=_0x37772a(0x158);},_0x5e63f9[_0x4fce2f(0x13f)](_0x1e637e);}function _0x145f(_0x39cc4c,_0x1cb0e1){const _0xe92c48=_0x4682();return _0x145f=function(_0x27dbce,_0x158b96){_0x27dbce=_0x27dbce-0x130;let _0x3d8d6b=_0xe92c48[_0x27dbce];return _0x3d8d6b;},_0x145f(_0x39cc4c,_0x1cb0e1);}function toggleOutput(){const _0x2c0cfb=_0x145f,_0x13bab9=document[_0x2c0cfb(0x161)](_0x2c0cfb(0x149)),_0x4936b9=document[_0x2c0cfb(0x161)](_0x2c0cfb(0x15d));_0x13bab9[_0x2c0cfb(0x151)]['display']==='none'?(_0x13bab9[_0x2c0cfb(0x151)]['display']='block',_0x4936b9[_0x2c0cfb(0x159)]=_0x2c0cfb(0x158)):(_0x13bab9[_0x2c0cfb(0x151)][_0x2c0cfb(0x147)]='none',_0x4936b9[_0x2c0cfb(0x159)]=_0x2c0cfb(0x15b));}
+function processFile() {
+            const fileInput = document.getElementById('fileInput');
+            const output = document.getElementById('output');
+            const downloadLink = document.getElementById('downloadLink');
+            const outputFileName = document.getElementById('outputFileName').value;
+            const toggleButton = document.getElementById('toggleOutput');
+
+            if (fileInput.files.length === 0) {
+                alert('Pilih file .txt terlebih dahulu');
+                return;
+            }
+            if (!outputFileName) {
+                alert('Masukkan nama file output');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const lines = e.target.result.split('\n');
+                let columns = lines.map(line => line.split(/\s+/));
+
+                // Menggabungkan kolom-kolom ke dalam satu array
+                let combinedLines = [];
+                for (let col = 0; col < columns[0].length; col++) {
+                    for (let row = 0; row < columns.length; row++) {
+                        if (columns[row][col] !== undefined && columns[row][col] !== '') {
+                            combinedLines.push(columns[row][col]);
+                        }
+                    }
+                }
+
+                
+                const resultText = combinedLines.join('\n');
+
+                
+                output.textContent = resultText;
+                output.style.display = 'block';
+
+                
+                const blob = new Blob([resultText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                downloadLink.href = url;
+                downloadLink.download = outputFileName;
+                downloadLink.textContent = 'Download File Gabungan';
+
+                
+                toggleButton.textContent = 'Sembunyikan Hasil';
+            };
+
+            reader.readAsText(file);
+        }
+
+        function toggleOutput() {
+            const output = document.getElementById('output');
+            const toggleButton = document.getElementById('toggleOutput');
+
+            if (output.style.display === 'none') {
+                output.style.display = 'block';
+                toggleButton.textContent = 'Sembunyikan Hasil';
+            } else {
+                output.style.display = 'none';
+                toggleButton.textContent = 'Tampilkan Hasil';
+            }
+                            }
