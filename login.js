@@ -1,49 +1,47 @@
-(function() {
-    function _0x4f2e(_0x535f, _0x4316) {
-        const _0x5a1e = _0x4316 - 0x0;
-        return _0x535f[_0x5a1e];
-    }
-    const _0x5e9f = ['getItem', 'setItem', 'users', 'admin', 'anonymous', 'password', 'expires', 'null', 'textContent', 'style', 'display', 'block', 'value', 'loginError', 'block', 'currentDate', 'Date', 'getItem', 'location', 'href', 'admin.html', 'main.html', 'Password salah.', 'Username tidak ditemukan.'];
+// Cek jika ada data users di localStorage, jika tidak ada, inisialisasi dengan user default
+if (!localStorage.getItem('users')) {
+    localStorage.setItem('users', JSON.stringify({
+        admin: { password: "admin", expires: null },   // Admin tanpa tanggal kadaluarsa
+        anonymous: { password: "anonymous", expires: null }  // User default tanpa tanggal kadaluarsa
+    }));
+}
 
-    if (!localStorage[_0x5e9f[0]](_0x5e9f[2])) {
-        localStorage[_0x5e9f[1]](_0x5e9f[2], JSON.stringify({
-            [_0x5e9f[3]]: { [_0x5e9f[5]]: "admin", [_0x5e9f[6]]: _0x5e9f[7] },
-            [_0x5e9f[4]]: { [_0x5e9f[5]]: "anonymous", [_0x5e9f[6]]: _0x5e9f[7] }
-        }));
-    }
+// Fungsi login
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const loginError = document.getElementById('loginError');
 
-    function _0x2c68() {
-        const _0x3c4d = document.getElementById('username')[_0x5e9f[8]];
-        const _0x3e44 = document.getElementById('password')[_0x5e9f[8]];
-        const _0x379e = document.getElementById(_0x5e9f[9]);
+    // Ambil data users dari localStorage
+    const users = JSON.parse(localStorage.getItem('users'));
 
-        const _0x2a9f = JSON.parse(localStorage[_0x5e9f[0]](_0x5e9f[2]));
+    // Cek apakah username ada dalam daftar dan password sesuai
+    if (users[username]) {
+        // Cek apakah user sudah kadaluarsa
+        const expires = users[username].expires;
+        const currentDate = new Date();
 
-        if (_0x2a9f[_0x3c4d]) {
-            const _0x4c5a = _0x2a9f[_0x3c4d][_0x5e9f[6]];
-            const _0x29e7 = new Date();
+        if (expires && new Date(expires) < currentDate) {
+            loginError.textContent = 'Akun ini telah kadaluarsa.';
+            loginError.style.display = 'block';
+            return;
+        }
 
-            if (_0x4c5a && new Date(_0x4c5a) < _0x29e7) {
-                _0x379e[_0x5e9f[10]] = 'Akun ini telah kadaluarsa.';
-                _0x379e[_0x5e9f[11]][_0x5e9f[12]] = _0x5e9f[13];
-                return;
-            }
-
-            if (_0x2a9f[_0x3c4d][_0x5e9f[5]] === _0x3e44) {
-                if (_0x3c4d === _0x5e9f[3]) {
-                    window[_0x5e9f[14]][_0x5e9f[15]] = _0x5e9f[16];
-                } else {
-                    window[_0x5e9f[14]][_0x5e9f[15]] = _0x5e9f[17];
-                }
+        // Cek password
+        if (users[username].password === password) {
+            if (username === 'admin') {
+                // Redirect ke halaman admin jika login sebagai admin
+                window.location.href = 'admin.html';
             } else {
-                _0x379e[_0x5e9f[10]] = _0x5e9f[18];
-                _0x379e[_0x5e9f[11]][_0x5e9f[12]] = _0x5e9f[13];
+                // Redirect ke halaman utama jika login berhasil
+                window.location.href = 'main.html';
             }
         } else {
-            _0x379e[_0x5e9f[10]] = _0x5e9f[19];
-            _0x379e[_0x5e9f[11]][_0x5e9f[12]] = _0x5e9f[13];
+            loginError.textContent = 'Password salah.';
+            loginError.style.display = 'block';
         }
+    } else {
+        loginError.textContent = 'Username tidak ditemukan.';
+        loginError.style.display = 'block';
     }
-
-    window[_0x5e9f[20]] = _0x2c68;
-})();
+}
