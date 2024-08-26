@@ -21,7 +21,9 @@ function processFile() {
         const lines = e.target.result.split('\n');
         
         let columns = lines.map(line => line.split(/\s+/));
+        
         let combinedLines = [];
+        
         let maxColumns = Math.max(...columns.map(row => row.length));
 
         for (let col = 0; col < maxColumns; col++) {
