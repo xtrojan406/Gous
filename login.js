@@ -1,23 +1,21 @@
-// Cek jika ada data users di localStorage, jika tidak ada, inisialisasi dengan user default
 if (!localStorage.getItem('users')) {
     localStorage.setItem('users', JSON.stringify({
         utdd7utgxugx: { password: "utsus7t", expires: null },  
-        utdutxgixiug: { password: "utsutxi", expires: null }  // User default tanpa tanggal kadaluarsa
+        utdutxgixiug: { password: "utsutxi", expires: null }  
     }));
 }
 
-// Fungsi login
+
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const loginError = document.getElementById('loginError');
 
-    // Ambil data users dari localStorage
+    
     const users = JSON.parse(localStorage.getItem('users'));
 
-    // Cek apakah username ada dalam daftar dan password sesuai
     if (users[username]) {
-        // Cek apakah user sudah kadaluarsa
+        
         const expires = users[username].expires;
         const currentDate = new Date();
 
@@ -27,13 +25,13 @@ function login() {
             return;
         }
 
-        // Cek password
+        
         if (users[username].password === password) {
             if (username === 'admin') {
-                // Redirect ke halaman admin jika login sebagai admin
+                
                 window.location.href = 'admin.html';
             } else {
-                // Redirect ke halaman utama jika login berhasil
+                 
                 window.location.href = 'main.html';
             }
         } else {
