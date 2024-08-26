@@ -9,7 +9,8 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Halaman Admin</h1>
-
+        
+        <!-- Form untuk menambah user biasa -->
         <div class="mt-4">
             <form id="addUserForm">
                 <div class="form-group">
@@ -29,22 +30,7 @@
             </form>
         </div>
 
-        <div class="mt-4">
-            <h3>Tambah Admin Cadangan:</h3>
-            <form id="addBackupAdminForm">
-                <div class="form-group">
-                    <label for="backupAdminUsername">Username Admin Cadangan:</label>
-                    <input type="text" id="backupAdminUsername" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="backupAdminPassword">Password Admin Cadangan:</label>
-                    <input type="password" id="backupAdminPassword" class="form-control" required>
-                </div>
-                <button type="button" onclick="addBackupAdmin()" class="btn btn-primary">Tambah Admin Cadangan</button>
-                <div id="addBackupAdminSuccess" class="text-success mt-2" style="display:none;">Admin cadangan berhasil ditambahkan!</div>
-            </form>
-        </div>
-
+        <!-- Tabel daftar user -->
         <div class="mt-5">
             <h3>Daftar User:</h3>
             <table class="table table-striped">
@@ -61,6 +47,7 @@
             </table>
         </div>
 
+        <!-- Form untuk mengganti password admin -->
         <div class="card mt-5">
             <div class="card-body">
                 <h5 class="card-title">Ganti Password Admin</h5>
@@ -79,6 +66,25 @@
                     </div>
                     <button type="button" class="btn btn-primary" onclick="changeAdminPassword()">Ganti Password</button>
                     <p id="changePasswordSuccess" style="display:none;" class="text-success mt-2">Password berhasil diubah!</p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Form untuk menambah admin cadangan -->
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Tambahkan Admin Cadangan</h5>
+                <form id="addBackupAdminForm">
+                    <div class="form-group">
+                        <label for="backupAdminUsername">Username Admin Cadangan</label>
+                        <input type="text" class="form-control" id="backupAdminUsername" placeholder="Masukkan username admin cadangan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="backupAdminPassword">Password Admin Cadangan</label>
+                        <input type="password" class="form-control" id="backupAdminPassword" placeholder="Masukkan password admin cadangan" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="addBackupAdmin()">Tambah Admin Cadangan</button>
+                    <p id="addBackupAdminSuccess" style="display:none;" class="text-success mt-2">Admin cadangan berhasil ditambahkan!</p>
                 </form>
             </div>
         </div>
