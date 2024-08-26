@@ -97,3 +97,37 @@ function loadUserList() {
         `;
     }
 }
+
+// Fungsi untuk mengganti password admin
+function changeAdminPassword() {
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newAdminPassword = document.getElementById('newAdminPassword').value;
+    const confirmNewAdminPassword = document.getElementById('confirmNewAdminPassword').value;
+    const changePasswordSuccess = document.getElementById('changePasswordSuccess');
+
+    const users = JSON.parse(localStorage.getItem('users'));
+
+    if (!users['admin']) {
+        alert('Akun admin tidak ditemukan.');
+        return;
+    }
+
+    if (users['admin'].password !== currentPassword) {
+        alert('Password saat ini salah.');
+        return;
+    }
+
+    if (newAdminPassword !== confirmNewAdminPassword) {
+        alert('Password baru dan konfirmasi password tidak cocok.');
+        return;
+    }
+
+    if (newAdminPassword) {
+        users['admin'].password = newAdminPassword;
+        localStorage.setItem('users', JSON.stringify(users));
+        changePasswordSuccess.style.display = 'block';
+        document.getElementById('changeAdminPasswordForm').reset();
+    } else {
+        alert('Password baru tidak boleh kosong.');
+    }
+}
