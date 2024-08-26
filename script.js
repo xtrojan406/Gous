@@ -19,31 +19,37 @@ function processFile() {
 
     reader.onload = function(e) {
         const lines = e.target.result.split('\n');
-        let columns = lines.map(line => line.split(/\s+/));
-
         
+        let columns = lines.map(line => line.split(/\s+/));
         let combinedLines = [];
-        for (let col = 0; col < columns[0].length; col++) {
+        let maxColumns = Math.max(...columns.map(row => row.length));
+
+        for (let col = 0; col < maxColumns; col++) {
             for (let row = 0; row < columns.length; row++) {
+                // Memastikan kolom yang ada dalam baris tersebut tidak undefined
                 if (columns[row][col] !== undefined && columns[row][col] !== '') {
-                    
+                    // Menghapus karakter '+' dan spasi dari elemen
                     let cleanedText = columns[row][col].replace(/[+ ]/g, '');
                     combinedLines.push(cleanedText);
                 }
             }
         }
 
+        // Menggabungkan hasil menjadi string tunggal dengan setiap elemen di baris baru
         const resultText = combinedLines.join('\n');
 
+        // Menampilkan hasil di halaman
         output.textContent = resultText;
         output.style.display = 'block';
 
+        // Membuat file untuk diunduh
         const blob = new Blob([resultText], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
         downloadLink.href = url;
         downloadLink.download = outputFileName;
         downloadLink.textContent = 'Download File Gabungan';
 
+        // Mengubah teks tombol toggle
         toggleButton.textContent = 'Sembunyikan Hasil';
     };
 
