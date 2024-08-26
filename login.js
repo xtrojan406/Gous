@@ -44,4 +44,4 @@ function login() {
         loginError.textContent = 'Username tidak ditemukan.';
         loginError.style.display = 'block';
     }
-          }
+}
