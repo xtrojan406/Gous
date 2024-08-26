@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Halaman Admin</h1>
-        
+
         <div class="mt-4">
             <form id="addUserForm">
                 <div class="form-group">
@@ -29,6 +29,22 @@
             </form>
         </div>
 
+        <div class="mt-4">
+            <h3>Tambah Admin Cadangan:</h3>
+            <form id="addBackupAdminForm">
+                <div class="form-group">
+                    <label for="backupAdminUsername">Username Admin Cadangan:</label>
+                    <input type="text" id="backupAdminUsername" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="backupAdminPassword">Password Admin Cadangan:</label>
+                    <input type="password" id="backupAdminPassword" class="form-control" required>
+                </div>
+                <button type="button" onclick="addBackupAdmin()" class="btn btn-primary">Tambah Admin Cadangan</button>
+                <div id="addBackupAdminSuccess" class="text-success mt-2" style="display:none;">Admin cadangan berhasil ditambahkan!</div>
+            </form>
+        </div>
+
         <div class="mt-5">
             <h3>Daftar User:</h3>
             <table class="table table-striped">
@@ -43,26 +59,29 @@
                     <!-- Daftar user akan dimuat di sini -->
                 </tbody>
             </table>
+        </div>
+
         <div class="card mt-5">
-    <div class="card-body">
-        <h5 class="card-title">Ganti Password Admin</h5>
-        <form id="changeAdminPasswordForm">
-            <div class="form-group">
-                <label for="currentPassword">Password Saat Ini</label>
-                <input type="password" class="form-control" id="currentPassword" placeholder="Masukkan password saat ini" required>
+            <div class="card-body">
+                <h5 class="card-title">Ganti Password Admin</h5>
+                <form id="changeAdminPasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Password Saat Ini</label>
+                        <input type="password" class="form-control" id="currentPassword" placeholder="Masukkan password saat ini" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newAdminPassword">Password Baru</label>
+                        <input type="password" class="form-control" id="newAdminPassword" placeholder="Masukkan password baru" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewAdminPassword">Konfirmasi Password Baru</label>
+                        <input type="password" class="form-control" id="confirmNewAdminPassword" placeholder="Konfirmasi password baru" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="changeAdminPassword()">Ganti Password</button>
+                    <p id="changePasswordSuccess" style="display:none;" class="text-success mt-2">Password berhasil diubah!</p>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="newAdminPassword">Password Baru</label>
-                <input type="password" class="form-control" id="newAdminPassword" placeholder="Masukkan password baru" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmNewAdminPassword">Konfirmasi Password Baru</label>
-                <input type="password" class="form-control" id="confirmNewAdminPassword" placeholder="Konfirmasi password baru" required>
-            </div>
-            <button type="button" class="btn btn-primary" onclick="changeAdminPassword()">Ganti Password</button>
-            <p id="changePasswordSuccess" style="display:none;" class="text-success mt-2">Password berhasil diubah!</p>
-        </form>
-    </div>
+        </div>
     </div>
 
     <script src="admin.js"></script>
