@@ -1,61 +1,62 @@
-function a() {
-    const b = document.getElementById('fileInput');
-    const c = document.getElementById('output');
-    const d = document.getElementById('downloadLink');
-    const e = document.getElementById('outputFileName').value;
-    const f = document.getElementById('toggleOutput');
+function processFile() {
+    const fileInput = document.getElementById('fileInput');
+    const output = document.getElementById('output');
+    const downloadLink = document.getElementById('downloadLink');
+    const outputFileName = document.getElementById('outputFileName').value;
+    const toggleButton = document.getElementById('toggleOutput');
 
-    if (b.files.length === 0) {
+    if (fileInput.files.length === 0) {
         alert('Pilih file .txt terlebih dahulu');
         return;
     }
-    if (!e) {
-        alert('Masukkan nama file ');
+    if (!outputFileName) {
+        alert('Masukkan nama file output');
         return;
     }
 
-    const g = b.files[0];
-    const h = new FileReader();
+    const file = fileInput.files[0];
+    const reader = new FileReader();
 
-    h.onload = function(i) {
-        const j = i.target.result.split('\n');
-        let k = j.map(l => l.split(/\s+/));
+    reader.onload = function(e) {
+        const lines = e.target.result.split('\n');
+        let columns = lines.map(line => line.split(/\s+/));
 
-        let l = [];
-        for (let m = 0; m < k[0].length; m++) {
-            for (let n = 0; n < k.length; n++) {
-                if (k[n][m] !== undefined && k[n][m] !== '') {
-                    l.push(k[n][m]);
+        // Menggabungkan kolom-kolom ke dalam satu array
+        let combinedLines = [];
+        for (let col = 0; col < columns[0].length; col++) {
+            for (let row = 0; row < columns.length; row++) {
+                if (columns[row][col] !== undefined && columns[row][col] !== '') {
+                    combinedLines.push(columns[row][col]);
                 }
             }
         }
 
-        const o = l.join('\n');
+        const resultText = combinedLines.join('\n');
 
-        c.textContent = o;
-        c.style.display = 'block';
+        output.textContent = resultText;
+        output.style.display = 'block';
 
-        const p = new Blob([o], { type: 'text/plain' });
-        const q = URL.createObjectURL(p);
-        d.href = q;
-        d.download = e;
-        d.textContent = 'Download File Gabungan';
+        const blob = new Blob([resultText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.download = outputFileName;
+        downloadLink.textContent = 'Download File Gabungan';
 
-        f.textContent = 'Sembunyikan Hasil';
+        toggleButton.textContent = 'Sembunyikan Hasil';
     };
 
-    h.readAsText(g);
+    reader.readAsText(file);
 }
 
-function r() {
-    const s = document.getElementById('output');
-    const t = document.getElementById('toggleOutput');
+function toggleOutput() {
+    const output = document.getElementById('output');
+    const toggleButton = document.getElementById('toggleOutput');
 
-    if (s.style.display === 'none') {
-        s.style.display = 'block';
-        t.textContent = 'Sembunyikan Hasil';
+    if (output.style.display === 'none') {
+        output.style.display = 'block';
+        toggleButton.textContent = 'Sembunyikan Hasil';
     } else {
-        s.style.display = 'none';
-        t.textContent = 'Tampilkan Hasil';
+        output.style.display = 'none';
+        toggleButton.textContent = 'Tampilkan Hasil';
     }
 }
