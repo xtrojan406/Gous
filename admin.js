@@ -1,15 +1,25 @@
-// Fungsi untuk memastikan akun admin selalu ada
+// Fungsi untuk memastikan akun admin utama dan admin cadangan selalu ada
 function ensureAdminAccount() {
     const users = JSON.parse(localStorage.getItem('users')) || {};
 
+    // Admin utama
     if (!users['admin']) {
         users['admin'] = {
-            password: 'admin', // Password default untuk admin
+            password: 'admin', // Password default untuk admin utama
             expires: null
         };
-        localStorage.setItem('users', JSON.stringify(users));
-        alert('Akun admin tidak ditemukan. Akun admin baru telah dibuat dengan password default "admin". Harap ganti password segera.');
     }
+
+    // Admin cadangan
+    if (!users['admin_cadangan']) {
+        users['admin_cadangan'] = {
+            password: 'admin_cadangan', // Password default untuk admin cadangan
+            expires: null
+        };
+    }
+
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Akun admin utama atau cadangan tidak ditemukan. Akun baru telah dibuat dengan password default. Harap ganti password segera.');
 }
 
 // Panggil fungsi ini saat halaman admin dimuat
@@ -44,8 +54,8 @@ function addUser() {
 
 // Fungsi untuk menghapus user
 function deleteUser(username) {
-    if (username === 'admin') {
-        alert('Admin tidak dapat dihapus.');
+    if (username === 'admin' || username === 'admin_cadangan') {
+        alert('Admin utama atau cadangan tidak dapat dihapus.');
         return;
     }
 
@@ -90,7 +100,7 @@ function loadUserList() {
                 <td>${username}</td>
                 <td>${expires}</td>
                 <td>
-                    ${username !== 'admin' ? `<button onclick="deleteUser('${username}')" class="btn btn-danger">Hapus</button>` : ''}
+                    ${username !== 'admin' && username !== 'admin_cadangan' ? `<button onclick="deleteUser('${username}')" class="btn btn-danger">Hapus</button>` : ''}
                     <button onclick="editUserExpires('${username}')" class="btn btn-warning">Edit Kadaluarsa</button>
                 </td>
             </tr>
@@ -98,7 +108,7 @@ function loadUserList() {
     }
 }
 
-// Fungsi untuk mengganti password admin
+// Fungsi untuk mengganti password admin atau admin cadangan
 function changeAdminPassword() {
     const currentPassword = document.getElementById('currentPassword').value;
     const newAdminPassword = document.getElementById('newAdminPassword').value;
@@ -107,12 +117,15 @@ function changeAdminPassword() {
 
     const users = JSON.parse(localStorage.getItem('users'));
 
-    if (!users['admin']) {
+    let adminAccount = users['admin'];
+    let backupAdminAccount = users['admin_cadangan'];
+
+    if (!adminAccount || !backupAdminAccount) {
         alert('Akun admin tidak ditemukan.');
         return;
     }
 
-    if (users['admin'].password !== currentPassword) {
+    if (adminAccount.password !== currentPassword && backupAdminAccount.password !== currentPassword) {
         alert('Password saat ini salah.');
         return;
     }
@@ -123,7 +136,11 @@ function changeAdminPassword() {
     }
 
     if (newAdminPassword) {
-        users['admin'].password = newAdminPassword;
+        if (adminAccount.password === currentPassword) {
+            users['admin'].password = newAdminPassword;
+        } else if (backupAdminAccount.password === currentPassword) {
+            users['admin_cadangan'].password = newAdminPassword;
+        }
         localStorage.setItem('users', JSON.stringify(users));
         changePasswordSuccess.style.display = 'block';
         document.getElementById('changeAdminPasswordForm').reset();
