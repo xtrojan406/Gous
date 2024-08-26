@@ -52,6 +52,29 @@ function addUser() {
     }
 }
 
+// Fungsi untuk menambah admin cadangan
+function addBackupAdmin() {
+    const backupAdminUsername = document.getElementById('backupAdminUsername').value;
+    const backupAdminPassword = document.getElementById('backupAdminPassword').value;
+    const addBackupAdminSuccess = document.getElementById('addBackupAdminSuccess');
+
+    // Ambil data users dari localStorage
+    const users = JSON.parse(localStorage.getItem('users'));
+
+    if (backupAdminUsername && backupAdminPassword) {
+        users[backupAdminUsername] = {
+            password: backupAdminPassword,
+            expires: null // Admin tidak memerlukan tanggal kadaluarsa
+        };
+        localStorage.setItem('users', JSON.stringify(users));
+        addBackupAdminSuccess.style.display = 'block';
+        document.getElementById('addBackupAdminForm').reset();
+        loadUserList(); // Refresh daftar user
+    } else {
+        alert('Username dan Password admin cadangan harus diisi!');
+    }
+}
+
 // Fungsi untuk menghapus user
 function deleteUser(username) {
     if (username === 'admin' || username === 'admin_cadangan') {
