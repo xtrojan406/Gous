@@ -79,7 +79,7 @@ function cleanOutput() {
     }
 
     // Hapus karakter '+' dan spasi
-    const cleanedText = processedText.replace(/\+|\s+/g, '');
+    const cleanedText = processedText.replace(/[+\s]/g, '');
 
     // Tampilkan hasil yang sudah dibersihkan
     output.textContent = cleanedText;
